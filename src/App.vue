@@ -13,6 +13,14 @@ const randomCountry3 = ref(flags_and_countries[Object.keys(flags_and_countries)[
 // mix the options
 const options = ref([randomCountry.value, randomCountry2.value, randomCountry3.value]);
 options.value = options.value.sort(() => Math.random() - 0.5);
+
+function checkAnswer(countryName){
+  if(countryName === randomCountry.value){
+    console.log('Correct');
+  }else{
+    console.log('Incorrect');
+  }
+}
 </script>
 
 <template>
@@ -22,7 +30,7 @@ options.value = options.value.sort(() => Math.random() - 0.5);
     <div class="game-area">
       <FlagCard :flag="randomFlag" :countryName="randomCountry" />
       <div class="option-container">
-        <OptionCard v-for="(option, index) in options" :key="index" :option="index + 1" :countryName="option" /> 
+        <OptionCard v-for="(option, index) in options" :key="index" :option="index + 1" :countryName="option" @optionSelected="checkAnswer" /> 
       </div>
     </div>
   </div>

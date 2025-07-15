@@ -1,10 +1,17 @@
 <template>
-    <div class="option-card">
+    <div class="option-card" @click="optionSelected">
         <p>{{ option }}) {{ countryName }}</p>
     </div>
 </template>
 
 <script setup>
+import { defineEmits } from 'vue';
+
+const emit = defineEmits(['optionSelected']);
+
+function optionSelected(){
+    emit('optionSelected', props.countryName);
+}
 
 const props = defineProps({
     option:String,
