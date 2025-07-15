@@ -3,6 +3,10 @@ import { ref } from 'vue';
 import InstructionsCard from './components/instructionsCard.vue';
 import FlagCard from './components/flagCard.vue';
 import OptionCard from './components/optionCard.vue';
+import { flags_and_countries } from './data';
+// generate a random flag and country
+const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
+const randomCountry = ref(flags_and_countries[randomFlag.value]);
 </script>
 
 <template>
@@ -10,11 +14,11 @@ import OptionCard from './components/optionCard.vue';
   <div class="container">
     <InstructionsCard />
     <div class="game-area">
-      <FlagCard flag="au" countryName="Australia" />
+      <FlagCard :flag="randomFlag" :countryName="randomCountry" />
       <div class="option-container">
-        <OptionCard option="A" countryName="Brazil" />
-        <OptionCard option="B" countryName="Argentina" />
-        <OptionCard option="C" countryName="Chile" />
+        <OptionCard option="A" :countryName="randomCountry" />
+        <OptionCard option="B" :countryName="randomCountry" />
+        <OptionCard option="C" :countryName="randomCountry" />
       </div>
     </div>
   </div>
