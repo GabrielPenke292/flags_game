@@ -1,8 +1,16 @@
 <template>
     <div class="option-card">
-        <p>A</p>
+        <p>{{ option }}</p>
     </div>
 </template>
+
+<script setup>
+
+const props = defineProps({
+    option:String,
+})
+
+</script>
 
 <style scoped>
 .option-card {
