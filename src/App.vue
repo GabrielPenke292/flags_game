@@ -7,6 +7,12 @@ import { flags_and_countries } from './data';
 // generate a random flag and country
 const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
 const randomCountry = ref(flags_and_countries[randomFlag.value]);
+// generate 2 more random countries
+const randomCountry2 = ref(flags_and_countries[Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]]);
+const randomCountry3 = ref(flags_and_countries[Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]]);
+// mix the options
+const options = ref([randomCountry.value, randomCountry2.value, randomCountry3.value]);
+options.value = options.value.sort(() => Math.random() - 0.5);
 </script>
 
 <template>
@@ -16,9 +22,7 @@ const randomCountry = ref(flags_and_countries[randomFlag.value]);
     <div class="game-area">
       <FlagCard :flag="randomFlag" :countryName="randomCountry" />
       <div class="option-container">
-        <OptionCard option="A" :countryName="randomCountry" />
-        <OptionCard option="B" :countryName="randomCountry" />
-        <OptionCard option="C" :countryName="randomCountry" />
+        <OptionCard v-for="(option, index) in options" :key="index" :option="index + 1" :countryName="option" /> 
       </div>
     </div>
   </div>
