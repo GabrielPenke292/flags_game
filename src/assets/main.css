@@ -2,14 +2,20 @@ body {
     margin: 0;
     background-color: #000;
     color: #fff;
+    font-family: 'Poppins', sans-serif;
 }
 
 header {
     font-size: 2em;
     color: white;
     margin-bottom: 20px;
-    background-color: rgb(62, 124, 210);
+    background-color: oklch(35.9% 0.144 278.697);
     font-weight: bold;
     padding: 10px;
     text-align: center;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
 }
