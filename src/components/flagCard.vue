@@ -1,8 +1,15 @@
 <template>
     <div class="flag-card">
-        <img src="../assets/flags/flag.png" alt="flag" />
+        <img :src="`https://flagcdn.com/256x192/${flag}.png`" width="144" height="108" :alt="countryName">
     </div>
 </template>
+
+<script setup>
+const props = defineProps({
+    flag:String,
+    countryName:String,
+})
+</script>
 
 <style scoped>
 .flag-card {

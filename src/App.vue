@@ -10,7 +10,7 @@ import OptionCard from './components/optionCard.vue';
   <div class="container">
     <InstructionsCard />
     <div class="game-area">
-      <FlagCard />
+      <FlagCard flag="au" countryName="Australia" />
       <div class="option-container">
         <OptionCard option="A" countryName="Brazil" />
         <OptionCard option="B" countryName="Argentina" />
