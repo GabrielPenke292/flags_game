@@ -6,6 +6,7 @@ import InstructionsCard from './components/instructionsCard.vue';
 import FlagCard from './components/flagCard.vue';
 import OptionCard from './components/optionCard.vue';
 import Score from './components/Score.vue';
+import Footer from './components/footer.vue';
 
 function generateRandomFlagAndOptions(){
   const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
@@ -67,21 +68,36 @@ function checkAnswer(countryName){
 </script>
 
 <template>
-  <header>Flag's Game</header>
-  <div class="container">
-    <InstructionsCard />
-    <div class="game-area">
-      <FlagCard :flag="randomFlag" :countryName="randomCountry" />
-      <div class="option-container">
-        <OptionCard v-for="(option, index) in options" :key="index" :option="index + 1" :countryName="option" @optionSelected="checkAnswer" /> 
+  <div class="app-wrapper">
+    <header>Flag's Game</header>
+    <div class="container">
+      <div class="main-content">
+        <div class="instructions-section">
+          <InstructionsCard />
+        </div>
+        <div class="game-section">
+          <div class="game-area">
+            <FlagCard :flag="randomFlag" :countryName="randomCountry" />
+            <div class="option-container">
+              <OptionCard v-for="(option, index) in options" :key="index" :option="index + 1" :countryName="option" @optionSelected="checkAnswer" /> 
+            </div>
+            <hr class="divider">
+            <Score ref="scoreRef" />
+          </div>
+        </div>
       </div>
-      <hr class="divider">
-      <Score ref="scoreRef" />
     </div>
+    <Footer />
   </div>
 </template>
 
 <style scoped>
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   text-align: center;
   font-size: 2.5rem;
@@ -91,9 +107,31 @@ header {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.instructions-section {
+  flex: 0 0 300px;
+  position: sticky;
+  top: 20px;
+}
+
+.game-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .game-area {
@@ -121,6 +159,16 @@ header {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .main-content {
+    gap: 20px;
+  }
+  
+  .instructions-section {
+    flex: 0 0 280px;
+  }
+}
+
 @media (max-width: 768px) {
   header {
     font-size: 2rem;
@@ -129,6 +177,17 @@ header {
   
   .container {
     padding: 0 15px;
+  }
+  
+  .main-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .instructions-section {
+    flex: none;
+    position: static;
+    width: 100%;
   }
   
   .option-container {
@@ -145,6 +204,10 @@ header {
   
   .container {
     padding: 0 10px;
+  }
+  
+  .main-content {
+    gap: 15px;
   }
   
   .game-area {

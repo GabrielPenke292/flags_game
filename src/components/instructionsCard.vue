@@ -2,7 +2,7 @@
     <div class="instructions-card">
         <h2>Instructions</h2>
         <p>You will be given a random country flag and you need to guess the country name.</p>
-        <p>Click on the correct option (A, B or C) to guess the country flag displayed.</p>
+        <p>Click on the correct option (1, 2 or 3) to guess the country flag displayed.</p>
     </div>
 </template>
 
@@ -13,12 +13,12 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    width: 50%;
-    max-width: 600px;
+    width: 100%;
+    height: fit-content;
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
-    margin: 20px auto;
+    margin: 0;
 }
 
 .instructions-card h2 {
@@ -36,7 +36,7 @@
     .instructions-card {
         padding: 15px;
         font-size: 1.1em;
-        margin: 15px auto;
+        margin: 0;
     }
     
     .instructions-card h2 {
@@ -48,7 +48,7 @@
     .instructions-card {
         padding: 12px;
         font-size: 1em;
-        margin: 10px auto;
+        margin: 0;
     }
     
     .instructions-card h2 {
