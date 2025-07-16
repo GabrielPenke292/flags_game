@@ -2,7 +2,8 @@
 
 A modern and interactive flag guessing game built with Vue 3 and Vite. Test your knowledge of world flags by identifying countries from their flag images!
 
-![Flags Game Screenshot](https://via.placeholder.com/800x400/242424/FFFFFF?text=Flags+Game+Screenshot)
+<img width="1791" height="923" alt="image" src="https://github.com/user-attachments/assets/4cd3dbeb-412b-4208-ae95-0600b06fa365" />
+
 
 ## ✨ Features
 
@@ -184,7 +185,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Gabriel Penke**
 - LinkedIn: [Gabriel Penke](https://www.linkedin.com/in/gabriel-penke-953771206/)
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@yourusername]([https://github.com/yourusername](https://github.com/GabrielPenke292))
 
 ## 🙏 Acknowledgments
 
