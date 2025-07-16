@@ -5,6 +5,7 @@ import FlagCard from './components/flagCard.vue';
 import OptionCard from './components/optionCard.vue';
 import { flags_and_countries } from './data';
 import Swal from 'sweetalert2';
+import Placar from './components/Placar.vue';
 
 function generateRandomFlagAndOptions(){
   const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
@@ -65,6 +66,8 @@ function checkAnswer(countryName){
       <div class="option-container">
         <OptionCard v-for="(option, index) in options" :key="index" :option="index + 1" :countryName="option" @optionSelected="checkAnswer" /> 
       </div>
+      <hr class="divider">
+      <Placar />
     </div>
   </div>
 </template>
@@ -84,5 +87,11 @@ function checkAnswer(countryName){
   align-items: center;
   gap: 20px;
   width: 100%;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
 }
 </style>
