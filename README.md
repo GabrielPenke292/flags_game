@@ -2,7 +2,8 @@
 
 A modern and interactive flag guessing game built with Vue 3 and Vite. Test your knowledge of world flags by identifying countries from their flag images!
 
-<img width="1791" height="923" alt="image" src="https://github.com/user-attachments/assets/4cd3dbeb-412b-4208-ae95-0600b06fa365" />
+<img width="1338" height="921" alt="image" src="https://github.com/user-attachments/assets/cefe11be-74a4-4489-aaa4-6214e5a749f9" />
+
 
 
 ## ✨ Features
