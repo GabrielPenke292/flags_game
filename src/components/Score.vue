@@ -19,6 +19,24 @@ import { ref } from 'vue';
 
 const correctAnswers = ref(0);
 const incorrectAnswers = ref(0);
+
+const emit = defineEmits(['correctAnswer', 'incorrectAnswer']);
+
+function correctAnswer(){
+    correctAnswers.value++;
+    emit('correctAnswer');
+}
+
+function incorrectAnswer(){
+    incorrectAnswers.value++;
+    emit('incorrectAnswer');
+}
+
+// Expor as funções para o componente pai
+defineExpose({
+    correctAnswer,
+    incorrectAnswer
+});
 </script>
 
 <style scoped>

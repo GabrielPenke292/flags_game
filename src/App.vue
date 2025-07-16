@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue';
+import Swal from 'sweetalert2';
+import { flags_and_countries } from './data';
 import InstructionsCard from './components/instructionsCard.vue';
 import FlagCard from './components/flagCard.vue';
 import OptionCard from './components/optionCard.vue';
-import { flags_and_countries } from './data';
-import Swal from 'sweetalert2';
-import Placar from './components/Score.vue';
+import Score from './components/Score.vue';
 
 function generateRandomFlagAndOptions(){
   const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
@@ -20,6 +20,9 @@ function generateRandomFlagAndOptions(){
 }
 
 const { randomFlag, randomCountry, options } = generateRandomFlagAndOptions();
+
+// reference to the score component
+const scoreRef = ref(null);
 
 function checkAnswer(countryName){
   if(countryName === randomCountry.value){
@@ -45,6 +48,9 @@ function checkAnswer(countryName){
       randomFlag.value = newFlag;
       randomCountry.value = newCountry;
       options.value = newOptions;
+
+      // Incrementar acerto no placar
+      scoreRef.value?.correctAnswer();
     });
   }else{
     Swal.fire({
@@ -52,6 +58,9 @@ function checkAnswer(countryName){
       text: 'Your answer is incorrect!',
       icon: 'error',
       confirmButtonText: 'OK'
+    }).then(() => {
+      // Incrementar erro no placar
+      scoreRef.value?.incorrectAnswer();
     });
   }
 }
@@ -67,7 +76,7 @@ function checkAnswer(countryName){
         <OptionCard v-for="(option, index) in options" :key="index" :option="index + 1" :countryName="option" @optionSelected="checkAnswer" /> 
       </div>
       <hr class="divider">
-      <Placar />
+      <Score ref="scoreRef" />
     </div>
   </div>
 </template>
