@@ -24,11 +24,35 @@ const props = defineProps({
     font-size: 1.5em;
     font-weight: bold;
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .flag-card img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .flag-card {
+        width: 280px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flag-card {
+        width: 250px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 360px) {
+    .flag-card {
+        width: 220px;
+        height: 140px;
+    }
 }
 </style>

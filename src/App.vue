@@ -82,6 +82,20 @@ function checkAnswer(countryName){
 </template>
 
 <style scoped>
+header {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .game-area {
   display: flex;
   flex-direction: column;
@@ -96,11 +110,49 @@ function checkAnswer(countryName){
   align-items: center;
   gap: 20px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .divider {
   width: 100%;
   height: 1px;
   background-color: #fff;
+  margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    font-size: 2rem;
+    margin: 15px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .option-container {
+    gap: 15px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .game-area {
+    gap: 15px;
+  }
+  
+  .option-container {
+    gap: 10px;
+  }
 }
 </style>

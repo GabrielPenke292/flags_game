@@ -46,15 +46,17 @@ defineExpose({
     align-items: center;
     justify-content: center;
     width: 100%;
+    max-width: 500px;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin: 20px auto;
+    background-color: #f8f9fa;
 }
 
 .score-title {
     margin: 0 0 15px 0;
-    color: #fff;
+    color: #333;
     font-size: 1.2em;
     font-weight: 600;
 }
@@ -102,5 +104,79 @@ defineExpose({
 
 .score-item.incorrect .score-value {
     color: #dc3545;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .score {
+        padding: 12px;
+        margin: 15px auto;
+    }
+    
+    .score-title {
+        font-size: 1.1em;
+        margin: 0 0 12px 0;
+    }
+    
+    .score-container {
+        gap: 25px;
+    }
+    
+    .score-item {
+        padding: 8px 16px;
+        min-width: 70px;
+    }
+    
+    .score-value {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .score {
+        padding: 10px;
+        margin: 10px auto;
+    }
+    
+    .score-title {
+        font-size: 1em;
+        margin: 0 0 10px 0;
+    }
+    
+    .score-container {
+        gap: 20px;
+    }
+    
+    .score-item {
+        padding: 6px 12px;
+        min-width: 60px;
+    }
+    
+    .score-label {
+        font-size: 0.8em;
+    }
+    
+    .score-value {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 360px) {
+    .score-container {
+        gap: 15px;
+    }
+    
+    .score-item {
+        padding: 5px 10px;
+        min-width: 50px;
+    }
+    
+    .score-label {
+        font-size: 0.7em;
+    }
+    
+    .score-value {
+        font-size: 1.1em;
+    }
 }
 </style>

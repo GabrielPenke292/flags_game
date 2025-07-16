@@ -3,7 +3,6 @@
         <h2>Instructions</h2>
         <p>You will be given a random country flag and you need to guess the country name.</p>
         <p>Click on the correct option (A, B or C) to guess the country flag displayed.</p>
-        
     </div>
 </template>
 
@@ -14,12 +13,52 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    width: 25%;
-    height: 50%;
+    width: 50%;
+    max-width: 600px;
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
+}
+
+.instructions-card h2 {
+    margin: 0 0 15px 0;
+    font-size: 1.5em;
+}
+
+.instructions-card p {
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .instructions-card {
+        padding: 15px;
+        font-size: 1.1em;
+        margin: 15px auto;
+    }
+    
+    .instructions-card h2 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .instructions-card {
+        padding: 12px;
+        font-size: 1em;
+        margin: 10px auto;
+    }
+    
+    .instructions-card h2 {
+        font-size: 1.2em;
+        margin: 0 0 10px 0;
+    }
+    
+    .instructions-card p {
+        margin: 8px 0;
+        line-height: 1.3;
+    }
 }
 </style>
