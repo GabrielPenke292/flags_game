@@ -5,15 +5,20 @@ import FlagCard from './components/flagCard.vue';
 import OptionCard from './components/optionCard.vue';
 import { flags_and_countries } from './data';
 import Swal from 'sweetalert2';
-// generate a random flag and country
-const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
-const randomCountry = ref(flags_and_countries[randomFlag.value]);
-// generate 2 more random countries
-const randomCountry2 = ref(flags_and_countries[Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]]);
-const randomCountry3 = ref(flags_and_countries[Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]]);
-// mix the options
-const options = ref([randomCountry.value, randomCountry2.value, randomCountry3.value]);
-options.value = options.value.sort(() => Math.random() - 0.5);
+
+function generateRandomFlagAndOptions(){
+  const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
+  const randomCountry = ref(flags_and_countries[randomFlag.value]);
+  // generate 2 more random countries
+  const randomCountry2 = ref(flags_and_countries[Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]]);
+  const randomCountry3 = ref(flags_and_countries[Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]]);
+  // mix the options
+  const options = ref([randomCountry.value, randomCountry2.value, randomCountry3.value]);
+  options.value = options.value.sort(() => Math.random() - 0.5);
+  return { randomFlag, randomCountry, options };
+}
+
+const { randomFlag, randomCountry, options } = generateRandomFlagAndOptions();
 
 function checkAnswer(countryName){
   if(countryName === randomCountry.value){
@@ -23,6 +28,22 @@ function checkAnswer(countryName){
       text: 'Your answer is correct!',
       icon: 'success',
       confirmButtonText: 'OK'
+    }).then(() => {
+      // generate new flag and options
+      const newFlag = Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)];
+      const newCountry = flags_and_countries[newFlag];
+      
+      // generate 2 more random countries
+      const newCountry2 = flags_and_countries[Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]];
+      const newCountry3 = flags_and_countries[Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]];
+      
+      // mix the options
+      const newOptions = [newCountry, newCountry2, newCountry3].sort(() => Math.random() - 0.5);
+      
+      // update the reactive variables
+      randomFlag.value = newFlag;
+      randomCountry.value = newCountry;
+      options.value = newOptions;
     });
   }else{
     Swal.fire({
