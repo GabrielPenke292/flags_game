@@ -186,7 +186,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Gabriel Penke**
 - LinkedIn: [Gabriel Penke](https://www.linkedin.com/in/gabriel-penke-953771206/)
-- GitHub: [@Gabriel Penke]([https://github.com/yourusername](https://github.com/GabrielPenke292))
+- GitHub: [@GabrielPenke292](https://github.com/GabrielPenke292)
 
 ## 🙏 Acknowledgments
 
