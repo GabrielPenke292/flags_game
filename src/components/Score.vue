@@ -1,6 +1,6 @@
 <template>
-    <div class="placar">
-        <h2 class="placar-title">Placar</h2>
+    <div class="score">
+        <h2 class="score-title">Score</h2>
         <div class="score-container">
             <div class="score-item correct">
                 <span class="score-label">Acertos:</span>
@@ -22,7 +22,7 @@ const incorrectAnswers = ref(0);
 </script>
 
 <style scoped>
-.placar {
+.score {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,7 +34,7 @@ const incorrectAnswers = ref(0);
     margin-top: 20px;
 }
 
-.placar-title {
+.score-title {
     margin: 0 0 15px 0;
     color: #fff;
     font-size: 1.2em;

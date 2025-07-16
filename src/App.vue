@@ -5,7 +5,7 @@ import FlagCard from './components/flagCard.vue';
 import OptionCard from './components/optionCard.vue';
 import { flags_and_countries } from './data';
 import Swal from 'sweetalert2';
-import Placar from './components/Placar.vue';
+import Placar from './components/Score.vue';
 
 function generateRandomFlagAndOptions(){
   const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
