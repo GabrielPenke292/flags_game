@@ -4,6 +4,7 @@ import InstructionsCard from './components/instructionsCard.vue';
 import FlagCard from './components/flagCard.vue';
 import OptionCard from './components/optionCard.vue';
 import { flags_and_countries } from './data';
+import Swal from 'sweetalert2';
 // generate a random flag and country
 const randomFlag = ref(Object.keys(flags_and_countries)[Math.floor(Math.random() * Object.keys(flags_and_countries).length)]);
 const randomCountry = ref(flags_and_countries[randomFlag.value]);
@@ -16,9 +17,20 @@ options.value = options.value.sort(() => Math.random() - 0.5);
 
 function checkAnswer(countryName){
   if(countryName === randomCountry.value){
-    console.log('Correct');
+    // sweet alert 
+    Swal.fire({
+      title: 'Correct',
+      text: 'Your answer is correct!',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
   }else{
-    console.log('Incorrect');
+    Swal.fire({
+      title: 'Incorrect',
+      text: 'Your answer is incorrect!',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
   }
 }
 </script>
